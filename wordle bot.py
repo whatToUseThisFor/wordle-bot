@@ -1,4 +1,4 @@
-file = open("/home/pi/Downloads/wordle_possible_words.txt", "r")
+file = open("possibleWordleWords.txt", "r")
 contents = file.readlines()
 for i in range(len(contents)):
     contents[i - 1] = contents[i - 1].replace("\n", "")
