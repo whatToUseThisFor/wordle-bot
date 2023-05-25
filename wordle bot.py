@@ -1,3 +1,4 @@
+#open file so that I don't have to write 2315 words into a list manually
 file = open("possibleWordleWords.txt", "r")
 contents = file.readlines()
 for i in range(len(contents)):
@@ -10,7 +11,7 @@ requiredLetters = input("What are the required letters? (don't separate them usi
 unavailableLetters = input("What are the unavailable letters? (don't separate them using anything) ")
 order = input('What is the order of the word? (ex. if "a" is the first letter an you do not know the other letters, you would type a----) ')
 
-#turn variables into lists to make it easier
+#turn variables into lists to make it easier to handle
 orderList = []
 requiredLetterList = []
 unavailableLetterList = []
@@ -63,6 +64,7 @@ for i in contents:
     
 for i in needToDelete:
     contents.remove(i)
-        
+    
+#print the possible words
 print(len(contents))
 print(contents)
