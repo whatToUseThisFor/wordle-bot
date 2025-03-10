@@ -143,61 +143,13 @@ for i in needToDelete:
     contents.remove(i)
 #order list into favorites first
 favorites = []
+letterFrequencies = {"a": 979, "b": 281, "c": 477, "d": 393, "e": 1233, "f": 230, "g": 311, "h": 389, "i": 671, "j": 27, "k": 210, "l": 719, "m": 316, "n": 575, "o": 754, "p": 367, "q": 29, "r": 899, "s": 669, "t": 729, "u": 467, "v": 153, "w": 195, "x": 37, "y": 425, "z": 40}
 scores = {} 
 for word in contents:
     score = 0
-    if "a" in word:
-        score += 979
-    if "b" in word:
-        score += 281
-    if "c" in word:
-        score += 477
-    if "d" in word:
-        score += 393
-    if "e" in word:
-        score += 1233
-    if "f" in word:
-        score += 230
-    if "g" in word:
-        score += 311
-    if "h" in word:
-        score += 389
-    if "i" in word:
-        score += 671
-    if "j" in word:
-        score += 27
-    if "k" in word:
-        score += 210
-    if "l" in word:
-        score += 719
-    if "m" in word:
-        score += 316
-    if "n" in word:
-        score += 575
-    if "o" in word:
-        score += 754
-    if "p" in word:
-        score += 367
-    if "q" in word:
-        score += 29
-    if "r" in word:
-        score += 899
-    if "s" in word:
-        score += 669
-    if "t" in word:
-        score += 729
-    if "u" in word:
-        score += 467
-    if "v" in word:
-        score += 153
-    if "w" in word:
-        score += 195
-    if "x" in word:
-        score += 37
-    if "y" in word:
-        score += 425
-    if "z" in word:
-        score += 40
+    for key, val in letterFrequencies.items():
+        if key in word:
+            score += val
     scores[word] = score
     
 scores = dict(sorted(scores.items(), key = lambda item: item[1], reverse = True))
