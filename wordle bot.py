@@ -65,58 +65,16 @@ for i in needToDelete:
     contents.remove(i)
     
 needToDelete = []
-    
+
+idx = 0
 for i in contents:
-    if i[0] == str(orderList2[0]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[1] == str(orderList2[1]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[2] == str(orderList2[2]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[3] == str(orderList2[3]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[4] == str(orderList2[4]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[0] == str(orderList2[5]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[1] == str(orderList2[6]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[2] == str(orderList2[7]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[3] == str(orderList2[8]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[4] == str(orderList2[9]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[0] == str(orderList2[10]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[1] == str(orderList2[11]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[2] == str(orderList2[12]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[3] == str(orderList2[13]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[4] == str(orderList2[14]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[0] == str(orderList2[15]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[1] == str(orderList2[16]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[2] == str(orderList2[17]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[3] == str(orderList2[18]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[4] == str(orderList2[19]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[0] == str(orderList2[20]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[1] == str(orderList2[21]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[2] == str(orderList2[22]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[3] == str(orderList2[23]) and i not in needToDelete:
-        needToDelete.append(i)
-    if i[4] == str(orderList2[24]) and i not in needToDelete:
-        needToDelete.append(i)
+    for o in range(5):
+        for index in range(5):
+            if idx == 25:
+                continue
+            if i[index] == str(orderList2[idx]) and i not in needToDelete:
+                needToDelete.append(i)
+            idx += 1
             
 for i in needToDelete:
     contents.remove(i)
