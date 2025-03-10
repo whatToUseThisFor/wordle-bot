@@ -5,49 +5,28 @@ for i in range(len(contents)):
 print(len(contents))
 print(contents)
 
+def createList(var):
+    var = str(var)
+    outputList = []
+    for i in range(len(var)):
+        outputList.append(var[i])
+    return outputList
+
 #get data for narrowing words down and put them in variables
 requiredLetters = input("What are the required letters? (don't separate them using anything) ")
 unavailableLetters = input("What are the unavailable letters? (don't separate them using anything) ")
 order = input('What is the order of the word? (ex. if "a" is the first letter an you do not know the other letters, you would type a----) ')
 order2 = input("Where do letters NOT go (same as last one, except put five rows, and you put letters that turn yellow instead of green) ")
-order3 = input("")
-order4 = input("")
-order5 = input("")
-order6 = input("")
+for i in range(4):
+    order2 = f"{order2}{input("")}"
 
-#turn variables into lists to make it easier
-orderList = []
-orderList2 = []
-requiredLetterList = []
-unavailableLetterList = []
+#turn vars into lists for itering
+requiredLetterList = createList(requiredLetters)
+unavailableLetterList = createList(unavailableLetters)
 
-if len(requiredLetters) > 0:
-    for i in range(len(requiredLetters)):
-        requiredLetterList.append(requiredLetters[i])
-        
-if len(unavailableLetters) > 0:    
-    for i in range(len(unavailableLetters)):
-        unavailableLetterList.append(unavailableLetters[i])
-        
+orderList = createList(order)
+orderList2 = createList(order2)
 
-for i in range(5):
-    orderList.append(order[i])
-    
-for i in range(5):
-    orderList2.append(order2[i])
-
-for i in range(5):
-    orderList2.append(order3[i])
-    
-for i in range(5):
-    orderList2.append(order4[i])
-    
-for i in range(5):
-    orderList2.append(order5[i])
-    
-for i in range(5):
-    orderList2.append(order6[i])
-    
 #start narrowing down words
 needToDelete = []
 for i in contents:
