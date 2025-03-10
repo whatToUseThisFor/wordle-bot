@@ -2,8 +2,6 @@ file = open("possibleWordleWords.txt", "r")
 contents = file.readlines()
 for i in range(len(contents)):
     contents[i - 1] = contents[i - 1].replace("\n", "")
-print(len(contents))
-print(contents)
 
 def createList(var):
     var = str(var)
@@ -11,6 +9,9 @@ def createList(var):
     for i in range(len(var)):
         outputList.append(var[i])
     return outputList
+
+def removeWords(x, needToDelete):
+    return not x in needToDelete
 
 #get data for narrowing words down and put them in variables
 requiredLetters = input("What are the required letters? (don't separate them using anything) ")
@@ -34,20 +35,14 @@ for i in contents:
         if i[o] in unavailableLetterList and not i in needToDelete:
             needToDelete.append(i)
             
-for i in needToDelete:
-    contents.remove(i)
-    
-needToDelete = []
+contents = list(filter(lambda x: removeWords(x, needToDelete), contents))
 
 for i in contents:
     for o in requiredLetterList:
         if not o in i and not i in needToDelete:
             needToDelete.append(i)
 
-for i in needToDelete:
-    contents.remove(i)
-
-needToDelete = []
+contents = list(filter(lambda x: removeWords(x, needToDelete), contents))
 
 for i in contents:
     if i[0] != orderList[0] and orderList[0] != "-" and i not in needToDelete:
@@ -61,10 +56,7 @@ for i in contents:
     if i[4] != orderList[4] and orderList[4] != "-" and i not in needToDelete:
         needToDelete.append(i)
     
-for i in needToDelete:
-    contents.remove(i)
-    
-needToDelete = []
+contents = list(filter(lambda x: removeWords(x, needToDelete), contents))
 
 idx = 0
 for i in contents:
@@ -76,8 +68,8 @@ for i in contents:
                 needToDelete.append(i)
             idx += 1
             
-for i in needToDelete:
-    contents.remove(i)
+contents = list(filter(lambda x: removeWords(x, needToDelete), contents))
+
 #order list into favorites first
 favorites = []
 letterFrequencies = {"a": 979, "b": 281, "c": 477, "d": 393, "e": 1233, "f": 230, "g": 311, "h": 389, "i": 671, "j": 27, "k": 210, "l": 719, "m": 316, "n": 575, "o": 754, "p": 367, "q": 29, "r": 899, "s": 669, "t": 729, "u": 467, "v": 153, "w": 195, "x": 37, "y": 425, "z": 40}
