@@ -34,30 +34,17 @@ for i in contents:
     for o in range(5):
         if i[o] in unavailableLetterList and not i in needToDelete:
             needToDelete.append(i)
-            
-contents = list(filter(lambda x: removeWords(x, needToDelete), contents))
 
 for i in contents:
     for o in requiredLetterList:
         if not o in i and not i in needToDelete:
             needToDelete.append(i)
 
-contents = list(filter(lambda x: removeWords(x, needToDelete), contents))
-
 for i in contents:
-    if i[0] != orderList[0] and orderList[0] != "-" and i not in needToDelete:
-        needToDelete.append(i)
-    if i[1] != orderList[1] and orderList[1] != "-" and i not in needToDelete:
-        needToDelete.append(i)
-    if i[2] != orderList[2] and orderList[2] != "-" and i not in needToDelete:
-        needToDelete.append(i)
-    if i[3] != orderList[3] and orderList[3] != "-" and i not in needToDelete:
-        needToDelete.append(i)
-    if i[4] != orderList[4] and orderList[4] != "-" and i not in needToDelete:
-        needToDelete.append(i)
+    for idx in range(5):
+        if i[idx] != orderList[idx] and orderList[idx] != "-":
+            needToDelete.append(i)
     
-contents = list(filter(lambda x: removeWords(x, needToDelete), contents))
-
 idx = 0
 for i in contents:
     for o in range(5):
